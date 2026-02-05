@@ -1,0 +1,398 @@
+<!DOCTYPE html><html lang="zh_CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>轻影云PACS系统 | 技术分享，日常随笔。</title><meta name="author" content="大六"><meta name="copyright" content="大六"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="轻影云PACS系统系统介绍轻影云PACS系统是一套基于BS架构的PACS系统，在DICOMSCP项目上升级完善了相关功能，主体功能已完善，支持预约登记管理、影像管理、在线影像阅片、报告管理、报告模板管理、工作量统计、HIS系统检查信息接口快捷登记、打印管理、查询检索管理 等功能。系统占用资源十分轻量，适合各种医疗机构使用。 功能特性 HIS对接管理  根据HIS接口或者视图获取患者检查数据 根据H">
+<meta property="og:type" content="article">
+<meta property="og:title" content="轻影云PACS系统">
+<meta property="og:url" content="http://hexo.cdadoc.com/2026/02/02/%E8%BD%BB%E5%BD%B1%E4%BA%91PACS%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="技术分享，日常随笔。">
+<meta property="og:description" content="轻影云PACS系统系统介绍轻影云PACS系统是一套基于BS架构的PACS系统，在DICOMSCP项目上升级完善了相关功能，主体功能已完善，支持预约登记管理、影像管理、在线影像阅片、报告管理、报告模板管理、工作量统计、HIS系统检查信息接口快捷登记、打印管理、查询检索管理 等功能。系统占用资源十分轻量，适合各种医疗机构使用。 功能特性 HIS对接管理  根据HIS接口或者视图获取患者检查数据 根据H">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://hexo.cdadoc.com/img/butterfly-icon.png">
+<meta property="article:published_time" content="2026-02-02T10:37:46.000Z">
+<meta property="article:modified_time" content="2026-02-05T02:51:11.554Z">
+<meta property="article:author" content="大六">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hexo.cdadoc.com/img/butterfly-icon.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "轻影云PACS系统",
+  "url": "http://hexo.cdadoc.com/2026/02/02/%E8%BD%BB%E5%BD%B1%E4%BA%91PACS%E7%B3%BB%E7%BB%9F/",
+  "image": "http://hexo.cdadoc.com/img/butterfly-icon.png",
+  "datePublished": "2026-02-02T10:37:46.000Z",
+  "dateModified": "2026-02-05T02:51:11.554Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "大六",
+      "url": "http://hexo.cdadoc.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://hexo.cdadoc.com/2026/02/02/%E8%BD%BB%E5%BD%B1%E4%BA%91PACS%E7%B3%BB%E7%BB%9F/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '轻影云PACS系统',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 8.1.1"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://img.cdadoc.top/bg.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">技术分享，日常随笔。</span></a><a class="nav-page-title" href="/"><span class="site-name">轻影云PACS系统</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">轻影云PACS系统</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-02-02T10:37:46.000Z" title="发表于 2026-02-02 18:37:46">2026-02-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-02-05T02:51:11.554Z" title="更新于 2026-02-05 10:51:11">2026-02-05</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h3 id="轻影云PACS系统"><a href="#轻影云PACS系统" class="headerlink" title="轻影云PACS系统"></a>轻影云PACS系统</h3><h4 id="系统介绍"><a href="#系统介绍" class="headerlink" title="系统介绍"></a>系统介绍</h4><p><strong>轻影云PACS系统</strong>是一套基于BS架构的PACS系统，在DICOMSCP项目上升级完善了相关功能，主体功能已完善，支持预约登记管理、影像管理、在线影像阅片、报告管理、报告模板管理、工作量统计、HIS系统检查信息接口快捷登记、打印管理、查询检索管理 等功能。系统占用资源十分轻量，适合各种医疗机构使用。</p>
+<h2 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h2><ul>
+<li><p><strong>HIS对接管理</strong></p>
+<ul>
+<li>根据HIS接口或者视图获取患者检查数据</li>
+<li>根据HIS信息快捷登记预约</li>
+</ul>
+</li>
+<li><p><strong>报告管理</strong></p>
+<ul>
+<li>根据影像信息填写报告</li>
+<li>引用报告模板</li>
+<li>快捷打印报告</li>
+</ul>
+</li>
+<li><p><strong>工作量统计管理</strong></p>
+<ul>
+<li>根据报告医生统计</li>
+<li>根据审核医生统计</li>
+<li>支持图表分析</li>
+<li>支持导出Excel文件</li>
+</ul>
+</li>
+<li><p><strong>在线阅片</strong></p>
+<ul>
+<li>支持浏览器直接阅片</li>
+<li>支持本地客户端阅片</li>
+<li>支持MPR，三维渲染</li>
+</ul>
+</li>
+<li><p><strong>预约登记管理</strong></p>
+<ul>
+<li>支持根据HIS接口信息预约登记</li>
+<li>支持根据影像信息补预约登记</li>
+<li>支持查看时间段已预约数量</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://img.cdadoc.top/qyy/login.jpg" alt="alt text"><br><img src="https://img.cdadoc.top/qyy/yydj.jpg" alt="alt text"><br><img src="https://img.cdadoc.top/qyy/yydj-sjd.jpg" alt="alt text"><br><img src="https://img.cdadoc.top/qyy/yxgl.jpg" alt="alt text"><br><img src="https://img.cdadoc.top/qyy/bjbg2.jpg" alt="alt text"><br><img src="https://img.cdadoc.top/qyy/dybg.jpg" alt="alt text"></p>
+<ul>
+<li><p><strong>存储服务 (C-STORE SCP)</strong></p>
+<ul>
+<li>按照4个级别的标签入库和归档</li>
+<li>按照级别标签自动组织存储目录结构</li>
+<li>支持 JPEG、JPEG2000、JPEG-LS、RLE 等压缩</li>
+</ul>
+</li>
+<li><p><strong>工作列表服务 (Worklist SCP)</strong></p>
+<ul>
+<li>提供标准 DICOM Modality Worklist 服务</li>
+<li>支持多种查询条件（患者ID、检查号、日期等）</li>
+<li>支持请求字符集协商自动中英文转换</li>
+</ul>
+</li>
+<li><p><strong>查询检索服务 (QR SCP)</strong></p>
+<ul>
+<li>提供 C-FIND、C-MOVE、C-GET 服务</li>
+<li>可配置多个目标节点</li>
+<li>支持多种查询级别（Study&#x2F;Series&#x2F;Image）</li>
+<li>支持JPEG、JPEG2000、JPEG-LS、RLE 传输语法实时转码</li>
+</ul>
+</li>
+<li><p><strong>打印服务 (Print SCP)</strong></p>
+<ul>
+<li>打印任务队列管理</li>
+<li>打印任务状态跟踪</li>
+<li>归档打印的原始文件和标签</li>
+</ul>
+</li>
+<li><p><strong>WADOURI 服务 (Web Access to DICOM Objects)</strong></p>
+<ul>
+<li><p>必需参数</p>
+<ul>
+<li><code>requestType</code>: 必须为 “WADO”</li>
+<li><code>studyUID</code>: 研究实例 UID</li>
+<li><code>seriesUID</code>: 序列实例 UID</li>
+<li><code>objectUID</code>: 实例 UID</li>
+</ul>
+</li>
+<li><p>可选参数</p>
+<ul>
+<li><p><code>contentType</code>: 返回内容类型 不传默认 image&#x2F;jpeg</p>
+<ul>
+<li><code>application/dicom</code>: 返回 DICOM 格式</li>
+<li><code>image/jpeg</code>: 返回 JPEG 格式</li>
+</ul>
+</li>
+<li><p><code>transferSyntax</code>: DICOM 传输语法 UID 不传默认不转码</p>
+<ul>
+<li><code>1.2.840.10008.1.2</code>: Implicit VR Little Endian</li>
+<li><code>1.2.840.10008.1.2.1</code>: Explicit VR Little Endian</li>
+<li><code>1.2.840.10008.1.2.4.50</code>: JPEG Baseline</li>
+<li><code>1.2.840.10008.1.2.4.57</code>: JPEG Lossless</li>
+<li><code>1.2.840.10008.1.2.4.70</code>: JPEG Lossless SV1</li>
+<li><code>1.2.840.10008.1.2.4.90</code>: JPEG 2000 Lossless</li>
+<li><code>1.2.840.10008.1.2.4.91</code>: JPEG 2000 Lossy</li>
+<li><code>1.2.840.10008.1.2.4.80</code>: JPEG-LS Lossless</li>
+<li><code>1.2.840.10008.1.2.5</code>: RLE Lossless</li>
+</ul>
+</li>
+<li><p><code>anonymize</code>: 是否匿名化</p>
+<ul>
+<li><code>yes</code>: 执行匿名化处理</li>
+<li>其他值或不传: 不进行匿名化</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>完整请求参数例子</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:5000/wado?requestType=WADO&amp;studyUID=1.2.840.113704.1.111.5096.1719875982.1&amp;seriesUID=1.3.46.670589.33.1.13252761201319485513.2557156297609063016&amp;objectUID=1.3.46.670589.33.1.39304787935332940.2231985654917411587&amp;contentType=application/dicom&amp;transferSyntax=1.2.840.10008.1.2.4.70&amp;anonymize=yes</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>CSTORE-SCU (CSTORE-SCU)</strong></p>
+<ul>
+<li>支持发送DICOM图像到DICOM SCP</li>
+<li>可配置多个目标节点</li>
+</ul>
+</li>
+<li><p><strong>Print-SCU (Print-SCU)</strong></p>
+<ul>
+<li>支持将PRINTSCP接收到的图像打印到其他打印机或PRINTSCP服务</li>
+<li>构建打印图像会保留原始图像的标签信息</li>
+</ul>
+</li>
+<li><p><strong>Log Service (日志服务)</strong></p>
+<ul>
+<li>支持查看、删除日志</li>
+<li>个服务日志独立配置</li>
+<li>多日志级别配置</li>
+<li>服务预置详细日志 方便对接查找问题</li>
+</ul>
+</li>
+<li><p><strong>WADO-RS 服务 (Web Access to DICOM Objects - RESTful Services)</strong></p>
+<ul>
+<li><p>实例检索 (Instance Retrieval)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET /dicomweb/studies/&#123;studyUID&#125;</span><br><span class="line">GET /dicomweb/studies/&#123;studyUID&#125;/series/&#123;seriesUID&#125;</span><br><span class="line">GET /dicomweb/studies/&#123;studyUID&#125;/series/&#123;seriesUID&#125;/instances/&#123;instanceUID&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>支持原始 DICOM 格式检索</li>
+<li>支持传输语法转换</li>
+<li>支持 multipart&#x2F;related 响应</li>
+<li>支持 Accept 头指定返回格式</li>
+<li>支持检查&#x2F;序列&#x2F;实例三个级别的检索</li>
+<li>支持 transfer-syntax 参数指定传输语法</li>
+</ul>
+</li>
+<li><p>元数据检索 (Metadata Retrieval)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /dicomweb/studies/&#123;studyUID&#125;/series/&#123;seriesUID&#125;/metadata</span><br></pre></td></tr></table></figure>
+<ul>
+<li>返回 DICOM JSON 格式</li>
+<li>包含完整的 DICOM 标签信息</li>
+<li>支持 VR 和 Value 的标准格式</li>
+<li>符合 DICOMweb 规范的空值处理</li>
+</ul>
+</li>
+<li><p>帧检索 (Frame Retrieval)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /dicomweb/studies/&#123;studyUID&#125;/series/&#123;seriesUID&#125;/instances/&#123;instanceUID&#125;/frames/&#123;frames&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>支持单帧&#x2F;多帧提取</li>
+<li>保持原始像素数据</li>
+<li>支持传输语法转换</li>
+</ul>
+</li>
+<li><p>缩略图服务 (Thumbnail)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GET /dicomweb/studies/&#123;studyUID&#125;/series/&#123;seriesUID&#125;/thumbnail?size=&#123;size&#125;</span><br><span class="line">GET /dicomweb/studies/&#123;studyUID&#125;/series/&#123;seriesUID&#125;/thumbnail?viewport=&#123;viewport&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>支持自定义尺寸<ul>
+<li>size: 指定输出图像大小（可选，默认 128）</li>
+<li>viewport: 指定视口大小（可选，与 size 参数互斥）</li>
+</ul>
+</li>
+<li>保持图像宽高比</li>
+<li>JPEG 格式输出</li>
+<li>示例：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/dicomweb/studies/1.2.3/series/4.5.6/thumbnail?size=256</span><br><span class="line">/dicomweb/studies/1.2.3/series/4.5.6/thumbnail?viewport=512</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>QIDO-RS 服务 (Query based on ID for DICOM Objects - RESTful Services)</strong></p>
+<ul>
+<li><p>研究级查询 (Study Level Query)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># DICOMweb 标准格式</span><br><span class="line">GET /dicomweb/studies?00100020=&#123;patientID&#125;&amp;00100010=&#123;patientName&#125;&amp;00080020=&#123;date&#125;&amp;00200010=&#123;accessionNumber&#125;&amp;0020000D=&#123;studyUID&#125;&amp;00080060=&#123;modality&#125;&amp;offset=&#123;offset&#125;&amp;limit=&#123;limit&#125;&amp;fuzzy=true</span><br><span class="line"></span><br><span class="line"># 友好格式（兼容）</span><br><span class="line">GET /dicomweb/studies?PatientID=&#123;patientID&#125;&amp;PatientName=&#123;patientName&#125;&amp;StudyDate=&#123;date&#125;&amp;AccessionNumber=&#123;accessionNumber&#125;&amp;StudyInstanceUID=&#123;studyUID&#125;&amp;Modality=&#123;modality&#125;&amp;offset=&#123;offset&#125;&amp;limit=&#123;limit&#125;&amp;fuzzy=true</span><br></pre></td></tr></table></figure>
+<ul>
+<li>支持多种查询参数：<ul>
+<li>标准 DICOM 标签格式：<ul>
+<li>00100020: 患者 ID</li>
+<li>00100010: 患者姓名</li>
+<li>00080020: 检查日期</li>
+<li>00200010: 检查号</li>
+<li>0020000D: 检查实例 UID</li>
+<li>00080060: 检查类型&#x2F;模态</li>
+</ul>
+</li>
+<li>友好格式（等效）：<ul>
+<li>PatientID: 精确匹配或模糊匹配 (例如: “P123*” 匹配所有以 P123 开头的ID)</li>
+<li>PatientName: 支持通配符 (例如: “<em>张</em>“ 匹配包含”张”的姓名)</li>
+<li>StudyDate: 支持日期范围 (例如: “20240101-20240131” 表示1月份的数据)</li>
+<li>AccessionNumber: 检查号匹配</li>
+<li>StudyInstanceUID: 检查实例 UID 精确匹配</li>
+<li>Modality: 检查类型&#x2F;模态 (例如: “CT” 或 “CT\MR” 支持多值)</li>
+<li>fuzzy: 设置为 true 时启用模糊匹配</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>支持分页功能（offset&#x2F;limit）</li>
+<li>支持模糊匹配</li>
+<li>返回符合 DICOMweb 标准的 JSON 格式</li>
+</ul>
+</li>
+<li><p>序列级查询 (Series Level Query)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /dicomweb/studies/&#123;studyUID&#125;/series?SeriesInstanceUID=&#123;seriesUID&#125;&amp;Modality=&#123;modality&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>支持序列 UID 过滤</li>
+<li>支持模态过滤 (例如: “CT*” 匹配所有 CT 相关模态)</li>
+<li>返回序列详细信息</li>
+<li>符合 DICOMweb JSON 格式规范</li>
+</ul>
+</li>
+<li><p>实例级查询 (Instance Level Query)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /dicomweb/studies/&#123;studyUID&#125;/series/&#123;seriesUID&#125;/instances?SOPInstanceUID=&#123;instanceUID&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>支持 SOP 实例 UID 过滤</li>
+<li>返回实例详细信息</li>
+<li>包含图像参数信息</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="系统要求"><a href="#系统要求" class="headerlink" title="系统要求"></a>系统要求</h2><ul>
+<li>Windows 10&#x2F;11 或 Windows Server 2016+</li>
+<li>.NET 8.0 或更高版本</li>
+<li>SQLite 3.x</li>
+<li>8GB+ RAM</li>
+<li>40GB+ 可用磁盘空间</li>
+<li>现代浏览器（Chrome&#x2F;Firefox&#x2F;Edge）</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://hexo.cdadoc.com">大六</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://hexo.cdadoc.com/2026/02/02/%E8%BD%BB%E5%BD%B1%E4%BA%91PACS%E7%B3%BB%E7%BB%9F/">http://hexo.cdadoc.com/2026/02/02/%E8%BD%BB%E5%BD%B1%E4%BA%91PACS%E7%B3%BB%E7%BB%9F/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://hexo.cdadoc.com" target="_blank">技术分享，日常随笔。</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2026/02/02/hello-world/" title="Hello World"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Hello World</div></div><div class="info-2"><div class="info-item-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Generating Deploy to remote sites1$ hexo deploy  More info: Deployment </div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">大六</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/dandll"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"><p><img src='https://img.cdadoc.top/wx240.png'></p></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%BB%E5%BD%B1%E4%BA%91PACS%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.</span> <span class="toc-text">轻影云PACS系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">系统介绍</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E7%89%B9%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">功能特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%A6%81%E6%B1%82"><span class="toc-number">3.</span> <span class="toc-text">系统要求</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/02/05/%E6%98%93%E9%98%85%E4%BA%91PACS%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E8%AF%B4%E6%98%8E/" title="易阅云PACS管理系统说明">易阅云PACS管理系统说明</a><time datetime="2026-02-05T02:50:58.000Z" title="发表于 2026-02-05 10:50:58">2026-02-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/02/02/hello-world/" title="Hello World">Hello World</a><time datetime="2026-02-02T11:44:39.295Z" title="发表于 2026-02-02 19:44:39">2026-02-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/02/02/%E8%BD%BB%E5%BD%B1%E4%BA%91PACS%E7%B3%BB%E7%BB%9F/" title="轻影云PACS系统">轻影云PACS系统</a><time datetime="2026-02-02T10:37:46.000Z" title="发表于 2026-02-02 18:37:46">2026-02-02</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 大六</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"></div><script async data-pjax src="https://img.cdadoc.top/js/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
