@@ -1,0 +1,26 @@
+# .github/workflows/deploy.yml
+name: Deploy to GitHub Pages Repo
+
+on:
+  push:
+    branches: [ main, master ]  # 监听 main 或 master 分支推送
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+      
+      - name: Deploy to external repository
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          deploy_key: ${{ secrets.PAGES_DEPLOY_KEY }}
+          publish_dir: ./public
+          external_repository: username/username.github.io  # 修改为你的目标仓库
+          publish_branch: main
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'Deploy from ${{ github.repository }}@{{ github.sha }}'
