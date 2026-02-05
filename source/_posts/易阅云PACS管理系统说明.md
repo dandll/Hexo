@@ -36,12 +36,13 @@ tags:
   - 支持根据影像信息补预约登记
   - 支持查看时间段已预约数量
 
-![alt text](https://img.cdadoc.top/qyy/login.jpg)
-![alt text](https://img.cdadoc.top/qyy/yydj.jpg)
-![alt text](https://img.cdadoc.top/qyy/yydj-sjd.jpg)
-![alt text](https://img.cdadoc.top/qyy/yxgl.jpg)
-![alt text](https://img.cdadoc.top/qyy/bjbg2.jpg)
-![alt text](https://img.cdadoc.top/qyy/dybg.jpg)
+![alt text](https://img.cdadoc.top/yyy/登录界面.png)
+![alt text](https://img.cdadoc.top/yyy/预约登记界面.png)
+![alt text](https://img.cdadoc.top/yyy/预约登记界面-选择时间段.png)
+![alt text](https://img.cdadoc.top/yyy/影像管理界面.png)
+![alt text](https://img.cdadoc.top/yyy/书写报告界面.png)
+![alt text](https://img.cdadoc.top/yyy/阅片界面2.png)
+![alt text](https://img.cdadoc.top/yyy/HIS检查申请登记界面.png)
 
 - **存储服务 (C-STORE SCP)**
   - 按照4个级别的标签入库和归档
