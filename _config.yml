@@ -14,11 +14,27 @@ timezone: ''
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: http://hexo.cdadoc.com
-permalink: :year/:month/:day/:title/
+permalink: :year:month:day/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
+# permalink: posts/:abbrlink.html  # 此处可以自己设置，也可以直接使用 :/abbrlink
+# # abbrlink config  
+# abbrlink:  
+#   alg: crc16      #support crc16(default) and crc32  
+#   rep: hex        #support dec(default) and hex  
+#   drafts: true   #(true)处理草稿，(false)不处理草稿。false（默认值）  
+#   # 从目录树生成类别  
+#   # 深度：要生成的目录树的最大深度应大于0  
+#   auto_category:  
+#     enable: true  #true(default)  
+#     depth:        #3(default)  
+#     over_write: false   
+#   auto_title: false #启用自动标题，可以按路径自动填充标题  
+#   auto_date: false #启用自动日期，它可以自动填写日期的时间今天  
+#   force: false #启用强制模式，在这种模式下，插件将忽略缓存，并为每个帖子计算abbrlink，即使它已经有了abbrlink。
+
 
 # Directory
 source_dir: source
@@ -101,4 +117,22 @@ theme: butterfly
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  - type: hexo-seo-submit
+
+hexo-seo-submit:
+  baidu:
+    enable: true # 是否启用
+    token: 88ae36f06ac05e85df6ecedd84198520 # token
+  google:
+    enable: true
+    accountKeysJSonFile: google.json # 谷歌账户密钥文件路径，默认 root 目录寻找
+    proxy: http://127.0.0.1:7890 #代理，防止谷歌无法收录
+  bing:
+    enable: true
+    apiKey: your bing api key
+
+# 自动生成sitemap
+sitemap:
+	path: sitemap.xml
+baidusitemap:
+	path: baidusitemap.xml

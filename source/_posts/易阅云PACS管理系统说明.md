@@ -1,5 +1,6 @@
 ---
 title: 易阅云PACS管理系统说明
+abbrlink: 43099
 date: 2026-02-05 10:50:58
 tags:
 ---

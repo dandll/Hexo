@@ -1,5 +1,6 @@
 ---
 title: 轻影云PACS系统
+abbrlink: 30938
 date: 2026-02-02 18:37:46
 tags:
 ---
