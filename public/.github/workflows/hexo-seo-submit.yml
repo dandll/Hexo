@@ -45,7 +45,7 @@ jobs:
         if: env.is_owner
         continue-on-error: true
         run: |
-          npx hexo-seo-submit@1.8.0 baidu -t ${{ secrets.baidu_token }} -s http://hexo.cdadoc.com -f baidu.txt
+          npx hexo-seo-submit@1.8.0 baidu -t ${{ secrets.baidu_token }} -s http://hexo.cdadoc.top -f baidu.txt
 
       - name: push search engine bing
         if: env.is_owner
